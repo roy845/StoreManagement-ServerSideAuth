@@ -48,6 +48,14 @@ This project is a store management application built using React, Redux (for sta
 
 <img src="https://imgtr.ee/images/2023/07/26/03090faa58f6bd7db1f6665cb18ecaf6.png" alt="03090faa58f6bd7db1f6665cb18ecaf6.png" width = "800px" height = "400px">
 
+8. Not Found Page: This page is used when a user tries to navigate to a non-existing page or route in your application.
+
+<img src="https://imgtr.ee/images/2023/07/27/54fdf6d9524ade27f11797cde9a315f6.png" alt="54fdf6d9524ade27f11797cde9a315f6.png" width = "800px" height = "400px">
+
+9. Unauthorized Page: This page is used when a user tries to access a resource for which they do not have permission.
+
+<img src="https://imgtr.ee/images/2023/07/27/5ffc7f634087eac3f8d90765cb906cf2.png" alt="5ffc7f634087eac3f8d90765cb906cf2.png" width = "800px" height = "400px">
+
 ## Database Collections
 
 **Products**:
