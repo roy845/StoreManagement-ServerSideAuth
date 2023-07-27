@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   products: [],
-  totalPurchased: localStorage.getItem("totalPurchases") || 0,
+  totalPurchased: JSON.parse(localStorage.getItem("totalPurchases")) || 0,
 };
 
 export const productsSlice = createSlice({
