@@ -28,7 +28,7 @@ This project is a store management application built using React, Redux (for sta
 
 4. Edit Product Page: Allows Admin users to update or delete product data.
 
-<img src="https://imgtr.ee/images/2023/07/26/72c782ff8a8529a2a1a44ae885dc01a1.png" alt="72c782ff8a8529a2a1a44ae885dc01a1.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/28/e45bad20013c37a56472158e6f1827f2.png" alt="e45bad20013c37a56472158e6f1827f2.png" width = "800px" height = "400px">
 
 5. Customers Page: Showcases customers and their purchased products and purchased dates. Users can also buy products from this page.
 
@@ -42,7 +42,7 @@ This project is a store management application built using React, Redux (for sta
 
 6. Edit Customer Page: Allows Admin users to update or delete customer data.
 
-<img src="https://imgtr.ee/images/2023/07/26/ac835585d211705a44796a6d409075a0.png" alt="ac835585d211705a44796a6d409075a0.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/28/93653607bd6a648edddd54f2a4fd2059.png" alt="93653607bd6a648edddd54f2a4fd2059.png" width = "800px" height = "400px">
 
 7. Purchases Page: Allows users to search for purchases by product, customer, or date.
 
