@@ -197,7 +197,7 @@ const EditCustomer = () => {
                   </Button>
                   <Button
                     variant="contained"
-                    color="secondary"
+                    sx={{ backgroundColor: "red" }}
                     onClick={deleteCustomer}
                   >
                     Delete Customer

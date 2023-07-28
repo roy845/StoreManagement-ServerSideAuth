@@ -80,7 +80,21 @@ const EditProduct = () => {
   }, [productId, db]);
 
   const handleInputChange = (e) => {
-    setProductData({ ...productData, [e.target.name]: e.target.value });
+    const value =
+      e.target.name === "Quantity" || e.target.name === "Price"
+        ? +e.target.value
+        : e.target.value;
+
+    // Ensure the quantity or price is non-negative
+    if (
+      (e.target.name === "Quantity" || e.target.name === "Price") &&
+      value < 0
+    ) {
+      toast.error("Product Quantity or Price cannot be a negative number.");
+      return; // Exit the function early without setting the state
+    }
+
+    setProductData({ ...productData, [e.target.name]: value });
   };
 
   const updateProduct = async () => {
@@ -151,11 +165,13 @@ const EditProduct = () => {
                 <TextField
                   name="Price"
                   label="Product Price"
+                  type="number"
                   value={`${productData.Price}`}
                   onChange={handleInputChange}
                 />
                 <TextField
                   name="Quantity"
+                  type="number"
                   label="Product Quantity"
                   value={productData.Quantity}
                   onChange={handleInputChange}
@@ -176,7 +192,7 @@ const EditProduct = () => {
                   </Button>
                   <Button
                     variant="contained"
-                    color="secondary"
+                    sx={{ backgroundColor: "red" }}
                     onClick={deleteProduct}
                   >
                     Delete Product

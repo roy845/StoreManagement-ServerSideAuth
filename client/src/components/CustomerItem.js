@@ -135,7 +135,9 @@ const CustomerItem = ({ customer, purchase }) => {
                   style={{ color: product.Quantity === 0 ? "red" : "black" }}
                 >
                   {product.Name}{" "}
-                  {product.Quantity === 0 ? "(Out of Stock)" : ""}
+                  {product.Quantity === 0
+                    ? "(Out of Stock)"
+                    : " - " + product.Quantity + " Items left"}
                 </MenuItem>
               ))}
             </Select>

@@ -15,13 +15,14 @@ const root = createRoot(container);
 
 root.render(
   <Provider store={store}>
-    <Router>
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      <Router>
         <AuthProvider>
           <App />
         </AuthProvider>
-      </LocalizationProvider>
-      <Toaster />
-    </Router>
+
+        <Toaster />
+      </Router>
+    </LocalizationProvider>
   </Provider>
 );
