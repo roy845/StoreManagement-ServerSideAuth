@@ -72,15 +72,20 @@ const Purchases = () => {
       );
     }
 
-    if (data.Date) {
-      const formattedDate = format(
-        new Date(data.Date),
+    if (date) {
+      const startOfDay = format(
+        date.setHours(0, 0, 0, 0),
+        "yyyy-MM-dd'T'HH:mm:ss"
+      );
+      const endOfDay = format(
+        date.setHours(23, 59, 59, 999),
         "yyyy-MM-dd'T'HH:mm:ss"
       );
 
       purchasesQuery = query(
         purchasesQuery,
-        where("Date", "==", formattedDate)
+        where("Date", ">=", startOfDay),
+        where("Date", "<=", endOfDay)
       );
     }
 
