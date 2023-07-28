@@ -12,6 +12,7 @@ import {
   where,
   getDocs,
   writeBatch,
+  documentId,
 } from "firebase/firestore";
 import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
@@ -32,6 +33,8 @@ const EditProduct = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setIsLoading(true);
+
         const docRef = doc(db, "products", productId);
         const docSnap = await getDoc(docRef);
 
@@ -47,24 +50,23 @@ const EditProduct = () => {
         );
         const querySnapshot = await getDocs(q);
 
-        const customerIdsSet = new Set();
-        querySnapshot.docs.forEach((document) => {
-          const customerId = document.data().CustomerID;
-          customerIdsSet.add(customerId);
-        });
+        // Use map() to extract customerIds from each document
+        const customerIds = querySnapshot.docs.map(
+          (document) => document.data().CustomerID
+        );
 
-        let customersList = [];
+        // Create a new query for the 'customers' collection that fetches all customers with an ID in the 'customerIds' array
+        const customersQuery = query(
+          collection(db, "customers"),
+          where(documentId(), "in", customerIds)
+        );
 
-        for (const customerId of customerIdsSet) {
-          const customerDocRef = doc(db, "customers", customerId);
-          const customerDocSnap = await getDoc(customerDocRef);
+        const customersQuerySnapshot = await getDocs(customersQuery);
 
-          if (customerDocSnap.exists()) {
-            customersList.push({ ...customerDocSnap.data(), id: customerId });
-          } else {
-            console.log("No such document!");
-          }
-        }
+        const customersList = customersQuerySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
 
         setCustomers(customersList);
       } catch (error) {

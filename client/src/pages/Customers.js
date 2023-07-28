@@ -115,32 +115,51 @@ const Customers = () => {
     const fetchCustomers = async () => {
       try {
         const customersCollection = collection(db, "customers");
-        const customersSnapshot = await getDocs(customersCollection);
+        const purchasesCollection = collection(db, "purchases");
+        const productsCollection = collection(db, "products");
+
+        // Fetch all collections at once
+        const [customersSnapshot, purchasesSnapshot, productsSnapshot] =
+          await Promise.all([
+            getDocs(customersCollection),
+            getDocs(purchasesCollection),
+            getDocs(productsCollection),
+          ]);
+
+        // Convert to data arrays
         const customersData = customersSnapshot.docs.map((doc) => ({
           id: doc.id,
-          purchases: [], // Change 'products' and 'purchasedDates' to a single 'purchases' array
+          purchases: [],
+          ...doc.data(),
+        }));
+        const purchasesData = purchasesSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        const productsData = productsSnapshot.docs.map((doc) => ({
+          id: doc.id,
           ...doc.data(),
         }));
 
-        // Fetch purchases and product details for each customer
-        for (let customer of customersData) {
-          const purchasesCollection = collection(db, "purchases");
-          const purchasesSnapshot = await getDocs(purchasesCollection);
-          for (let document of purchasesSnapshot.docs) {
-            const purchase = document.data();
-            if (purchase.CustomerID === customer.id) {
-              const productSnapshot = await getDoc(
-                doc(db, "products", purchase.ProductID)
-              );
-              // Push an object containing product data, product id and purchase date
+        // Link data together
+        customersData.forEach((customer) => {
+          const customerPurchases = purchasesData.filter(
+            (purchase) => purchase.CustomerID === customer.id
+          );
+          customerPurchases.forEach((purchase) => {
+            const product = productsData.find(
+              (product) => product.id === purchase.ProductID
+            );
+            if (product) {
               customer.purchases.push({
-                productData: productSnapshot.data(),
-                productId: productSnapshot.id,
+                productData: product,
+                productId: product.id,
                 purchaseDate: purchase.Date,
               });
             }
-          }
-        }
+          });
+        });
+
         setIsLoading(false);
         dispatch(setCustomers(customersData));
       } catch (error) {

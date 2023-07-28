@@ -144,7 +144,9 @@ const Purchases = () => {
           <DatePicker
             value={date}
             label="Date"
-            onChange={(date) => setDate(date)}
+            onChange={(date) => {
+              setDate(date);
+            }}
             renderInput={(props) => (
               <TextField {...props} {...register("Date")} />
             )}
@@ -157,7 +159,7 @@ const Purchases = () => {
               marginTop: 2,
             }}
           >
-            <Button type="submit" variant="contained">
+            <Button type="submit" variant="contained" disabled={!date}>
               Search
             </Button>
           </Box>
