@@ -135,6 +135,7 @@ const Purchases = () => {
 
   return (
     <Layout title={"Purchases"}>
+      <h1 style={{ textAlign: "center" }}>Purchases</h1>
       <Box
         sx={{
           display: "flex",

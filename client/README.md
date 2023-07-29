@@ -46,7 +46,7 @@ This project is a store management application built using React, Redux (for sta
 
 7. Purchases Page: Allows users to search for purchases by product, customer, or date.
 
-<img src="https://imgtr.ee/images/2023/07/29/36f9507c29a3cba7535fda1154138619.png" alt="36f9507c29a3cba7535fda1154138619.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/29/c2695cefeb1c5913326acb40d0afe713.png" alt="c2695cefeb1c5913326acb40d0afe713.png" width = "800px" height = "400px">
 
 - No results from query found: If a user performs a search on the Purchases page and there are no results that match the search criteria, a helpful message will be displayed to inform the user that no search results were found.
 
