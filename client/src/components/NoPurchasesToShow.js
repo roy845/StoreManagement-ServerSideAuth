@@ -46,7 +46,8 @@ const NoPurchasesToShow = () => {
         <CardContent>
           <ErrorIcon style={{ color: "red" }} className={classes.icon} />
           <Typography variant="h6">
-            No transactions have been recorded for the specified date.
+            No transactions have been recorded for the specified search
+            creteria.
           </Typography>
         </CardContent>
       </Card>
