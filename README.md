@@ -20,33 +20,37 @@ This project is a store management application built using React, Redux (for sta
 
 3. Products Page: Displays total amount of purchased products and detailed product data. Users can add new products to customers from this page.
 
-<img src="https://imgtr.ee/images/2023/07/26/c3d24975ce55509f954da7a42c153e9f.png" alt="c3d24975ce55509f954da7a42c153e9f.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/29/72b85c197c6ce3a478767267e476bdad.png" alt="72b85c197c6ce3a478767267e476bdad.png"  width = "800px" height = "400px">
 
 - Add product
 
-<img src="https://imgtr.ee/images/2023/07/26/e8836158a69a8da8cec32eaad9bf8c0b.png" alt="e8836158a69a8da8cec32eaad9bf8c0b.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/29/31df3b6aee807d4bcc804e801127f0c2.png" alt="31df3b6aee807d4bcc804e801127f0c2.png" width = "800px" height = "400px">
 
 4. Edit Product Page: Allows Admin users to update or delete product data.
 
-<img src="https://imgtr.ee/images/2023/07/28/e45bad20013c37a56472158e6f1827f2.png" alt="e45bad20013c37a56472158e6f1827f2.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/29/7f054e27ebc0a683f7987900a9fa5608.png" alt="7f054e27ebc0a683f7987900a9fa5608.png" width = "800px" height = "400px">
 
 5. Customers Page: Showcases customers and their purchased products and purchased dates. Users can also buy products from this page.
 
-<img src="https://imgtr.ee/images/2023/07/26/3f7db13da80942aa8c46804afd6183de.png" alt="3f7db13da80942aa8c46804afd6183de.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/29/b7cac91c602d7b8b570a27de57520cce.png" alt="b7cac91c602d7b8b570a27de57520cce.png" width = "800px" height = "400px">
 
 - Add product
 
-<img src="https://imgtr.ee/images/2023/07/26/70591e10beafe2a4f0b898fafe64f90c.png" alt="70591e10beafe2a4f0b898fafe64f90c.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/29/f876b48ebe01a67e8015db149cac047d.png" alt="f876b48ebe01a67e8015db149cac047d.png" width = "800px" height = "400px">
 
-<img src="https://imgtr.ee/images/2023/07/26/1406624dababbaee97a370889dc5af1a.png" alt="1406624dababbaee97a370889dc5af1a.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/29/825bf6c3685dae16237b7bc708fbbc83.png" alt="825bf6c3685dae16237b7bc708fbbc83.png" width = "800px" height = "400px">
 
 6. Edit Customer Page: Allows Admin users to update or delete customer data.
 
-<img src="https://imgtr.ee/images/2023/07/28/93653607bd6a648edddd54f2a4fd2059.png" alt="93653607bd6a648edddd54f2a4fd2059.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/29/ede8ba4fc3880e62a4feb08645efb9ef.png" alt="ede8ba4fc3880e62a4feb08645efb9ef.png" width = "800px" height = "400px">
 
 7. Purchases Page: Allows users to search for purchases by product, customer, or date.
 
-<img src="https://imgtr.ee/images/2023/07/26/03090faa58f6bd7db1f6665cb18ecaf6.png" alt="03090faa58f6bd7db1f6665cb18ecaf6.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/29/36f9507c29a3cba7535fda1154138619.png" alt="36f9507c29a3cba7535fda1154138619.png" width = "800px" height = "400px">
+
+- No results from query found: If a user performs a search on the Purchases page and there are no results that match the search criteria, a helpful message will be displayed to inform the user that no search results were found.
+
+<img src="https://imgtr.ee/images/2023/07/29/2d98e363fdbcfe1465420a88f918cea2.png" alt="2d98e363fdbcfe1465420a88f918cea2.png" width = "800px" height = "400px">
 
 8. Not Found Page: This page is used when a user tries to navigate to a non-existing page or route in your application.
 
