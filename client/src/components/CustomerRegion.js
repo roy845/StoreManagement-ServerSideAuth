@@ -62,7 +62,7 @@ const CustomerRegion = ({ productId }) => {
 
   return (
     <div>
-      {productCustomers.length > 0 && <h3>Customers Bought That Product:</h3>}
+      {productCustomers.length > 0 && <h3>Customers Bought That Product</h3>}
       {productCustomers.map((customer) => (
         <CustomerItem
           key={customer.id}

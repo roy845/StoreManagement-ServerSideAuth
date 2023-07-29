@@ -4,7 +4,11 @@ import { selectTotalProductsPurchased } from "../features/products/productsSlice
 const TotalProductsPurchased = () => {
   const totalPurchased = useSelector(selectTotalProductsPurchased);
 
-  return <div>Total Products Purchased: {totalPurchased}</div>;
+  return (
+    <div>
+      <strong>Total Products Purchased:</strong> {totalPurchased}
+    </div>
+  );
 };
 
 export default TotalProductsPurchased;

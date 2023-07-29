@@ -152,7 +152,7 @@ const EditCustomer = () => {
               alignItems: "center",
             }}
           >
-            <h2>
+            <h2 style={{ textAlign: "center" }}>
               Edit Customer - {customer.FirstName + " " + customer.LastName}
             </h2>
             {customer && (

@@ -14,32 +14,51 @@ const ProductRegion = ({ product }) => {
         flexDirection: "column",
       }}
     >
-      <h3>
-        <Link
-          to={`/editProduct/${product.id}`}
+      {/* First Region: Product Data */}
+      <div
+        style={{
+          marginTop: "15px",
+          border: "2px solid blue",
+          padding: "10px",
+          marginBottom: "10px",
+        }}
+      >
+        <h3>
+          <Link
+            to={`/editProduct/${product.id}`}
+            style={{
+              textDecoration: "none",
+              color: Quantity === 0 ? "red" : "black",
+            }}
+          >
+            {Name}
+          </Link>
+        </h3>
+        <p
           style={{
-            textDecoration: "none",
             color: Quantity === 0 ? "red" : "black",
           }}
         >
-          {Name}
-        </Link>
-      </h3>
-      <p
+          <strong>Price:</strong> {Price} ₪
+        </p>
+        <p
+          style={{
+            color: Quantity === 0 ? "red" : "black",
+          }}
+        >
+          <strong>Quantity:</strong> {Quantity}
+        </p>
+      </div>
+
+      {/* Second Region: Customer Region */}
+      <div
         style={{
-          color: Quantity === 0 ? "red" : "black",
+          border: "2px solid purple",
+          padding: "10px",
         }}
       >
-        Price: {Price} ₪
-      </p>
-      <p
-        style={{
-          color: Quantity === 0 ? "red" : "black",
-        }}
-      >
-        Quantity: {Quantity}
-      </p>
-      <CustomerRegion productId={product.id} />
+        <CustomerRegion productId={product.id} />
+      </div>
     </div>
   );
 };

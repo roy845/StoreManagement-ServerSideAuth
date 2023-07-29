@@ -13,6 +13,8 @@ import { toast } from "react-hot-toast";
 import ProductRegion from "../components/ProductRegion";
 import { Divider } from "@mui/material";
 import Spinner from "../components/Spinner";
+import PerfectScrollbar from "react-perfect-scrollbar";
+import "react-perfect-scrollbar/dist/css/styles.css"; // Import the scrollbar styles
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -54,13 +56,14 @@ const Products = () => {
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "flex-start",
+                  pl: 5,
                 }}
               >
-                <Box
-                  sx={{
+                <PerfectScrollbar
+                  component="div"
+                  style={{
                     p: 1,
-                    overflow: "scroll",
-                    overflowX: "hidden",
+                    overflow: "hidden",
                     maxHeight: "500px",
                     bgcolor: "background.paper",
                     m: 1,
@@ -75,11 +78,15 @@ const Products = () => {
                     <div key={product.id}>
                       <ProductRegion product={product} />
                       <Divider
-                        sx={{ borderColor: "black", bgcolor: "black" }}
+                        sx={{
+                          borderColor: "black",
+                          bgcolor: "black",
+                          marginTop: "5px",
+                        }}
                       />
                     </div>
                   ))}
-                </Box>
+                </PerfectScrollbar>
 
                 <Box
                   sx={{

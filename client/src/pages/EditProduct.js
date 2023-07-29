@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Layout from "../components/Layout";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, List, ListItem, TextField } from "@mui/material";
 import {
   getFirestore,
   doc,
@@ -148,7 +148,9 @@ const EditProduct = () => {
             }}
           >
             <div>
-              <h2>Edit Product - {productData.Name}</h2>
+              <h2 style={{ textAlign: "center" }}>
+                Edit Product - {productData.Name}
+              </h2>
               <form
                 style={{
                   display: "flex",
@@ -202,18 +204,18 @@ const EditProduct = () => {
             </div>
             <div>
               <h2>Customers</h2>
-              <ul>
+              <List>
                 {customers.map((customer, index) => (
-                  <li
+                  <ListItem
                     key={index}
                     style={{ textDecoration: "none", listStyle: "none" }}
                   >
                     <Link to={`/editCustomer/${customer?.id}`}>
                       {customer?.FirstName + " " + customer?.LastName}
                     </Link>
-                  </li>
+                  </ListItem>
                 ))}
-              </ul>
+              </List>
             </div>
           </Box>
         </>

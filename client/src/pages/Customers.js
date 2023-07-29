@@ -194,20 +194,27 @@ const Customers = () => {
                       sx={{
                         borderBottom: "1px solid black",
                         borderRight: "1px solid black",
+                        textAlign: "center",
                       }}
                     >
-                      Customer Name
+                      <strong>Customer Name</strong>
                     </TableCell>
                     <TableCell
                       sx={{
                         borderBottom: "1px solid black",
                         borderRight: "1px solid black",
+                        textAlign: "center",
                       }}
                     >
-                      Products
+                      <strong>Products</strong>
                     </TableCell>
-                    <TableCell sx={{ borderBottom: "1px solid black" }}>
-                      Purchased Dates
+                    <TableCell
+                      sx={{
+                        borderBottom: "1px solid black",
+                        textAlign: "center",
+                      }}
+                    >
+                      <strong>Purchased Dates</strong>
                     </TableCell>
                   </TableRow>
                 </TableHead>
@@ -218,14 +225,18 @@ const Customers = () => {
                         sx={{
                           borderBottom: "1px solid black",
                           borderRight: "1px solid black",
+                          textAlign: "center",
                         }}
                       >
-                        {customer.FirstName} {customer.LastName}
+                        <strong>
+                          {customer.FirstName} {customer.LastName}
+                        </strong>
                       </TableCell>
                       <TableCell
                         sx={{
                           borderBottom: "1px solid black",
                           borderRight: "1px solid black",
+                          textAlign: "center",
                         }}
                       >
                         {customer?.purchases?.map((purchase, index) => (
@@ -236,9 +247,21 @@ const Customers = () => {
                           </div>
                         ))}
                       </TableCell>
-                      <TableCell sx={{ borderBottom: "1px solid black" }}>
+                      <TableCell
+                        sx={{
+                          borderBottom: "1px solid black",
+                          textAlign: "center",
+                        }}
+                      >
                         {customer?.purchases?.map((purchase, index) => (
-                          <div key={index}>{purchase.purchaseDate}</div>
+                          <div key={index}>
+                            <strong>
+                              {format(
+                                new Date(purchase.purchaseDate),
+                                "d MMMM yyyy, HH:mm:ss"
+                              )}
+                            </strong>
+                          </div>
                         ))}
                       </TableCell>
                     </TableRow>

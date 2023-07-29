@@ -14,6 +14,7 @@ import {
   TableContainer,
   TableHead,
   TableRow,
+  TablePagination,
 } from "@mui/material";
 import { DatePicker } from "@mui/x-date-pickers";
 import { useForm } from "react-hook-form";
@@ -26,6 +27,7 @@ import {
   onSnapshot,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
+import NoPurchasesToShow from "../components/NoPurchasesToShow";
 
 const Purchases = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -33,6 +35,20 @@ const Purchases = () => {
   const [customers, setCustomers] = useState([]);
   const [purchases, setPurchases] = useState([]);
   const [date, setDate] = useState(null);
+  const [selectedProduct, setSelectedProduct] = useState("");
+  const [selectedCustomer, setSelectedCustomer] = useState("");
+  const [searched, setSearched] = useState(false);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -56,6 +72,7 @@ const Purchases = () => {
   }, []);
 
   const onSubmit = (data) => {
+    setSearched(true);
     let purchasesQuery = collection(db, "purchases");
 
     if (data.product !== "*") {
@@ -96,6 +113,15 @@ const Purchases = () => {
     return unsubscribe;
   };
 
+  const resetForm = () => {
+    reset({ product: "", customer: "", Date: null });
+    setDate(null);
+    setSelectedProduct("");
+    setSelectedCustomer("");
+    setPurchases([]);
+    setSearched(false);
+  };
+
   // Convert arrays to objects for faster lookup.
   const productsObj = products.reduce((obj, product) => {
     obj[product.id] = product.Name;
@@ -120,7 +146,12 @@ const Purchases = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <FormControl sx={{ minWidth: 200 }}>
             <InputLabel id="product-select-label">Product</InputLabel>
-            <Select {...register("product")}>
+
+            <Select
+              {...register("product")}
+              value={selectedProduct}
+              onChange={(e) => setSelectedProduct(e.target.value)}
+            >
               <MenuItem value="*">All</MenuItem>
               {products.map((product) => (
                 <MenuItem key={product.id} value={product.id}>
@@ -131,7 +162,12 @@ const Purchases = () => {
           </FormControl>
           <FormControl sx={{ minWidth: 200 }}>
             <InputLabel id="customer-select-label">Customer</InputLabel>
-            <Select {...register("customer")}>
+
+            <Select
+              {...register("customer")}
+              value={selectedCustomer}
+              onChange={(e) => setSelectedCustomer(e.target.value)}
+            >
               <MenuItem value="*">All</MenuItem>
               {customers.map((customer) => (
                 <MenuItem key={customer.id} value={customer.id}>
@@ -157,43 +193,122 @@ const Purchases = () => {
               display: "flex",
               justifyContent: "center",
               marginTop: 2,
+              marginBottom: 2,
+              gap: 2, // set the gap
             }}
           >
-            <Button type="submit" variant="contained" disabled={!date}>
+            <Button
+              type="submit"
+              variant="contained"
+              disabled={
+                selectedProduct === "" || selectedCustomer === "" || !date
+              }
+            >
               Search
+            </Button>
+
+            <Button
+              style={{
+                backgroundColor:
+                  !selectedProduct || !selectedCustomer || !date
+                    ? "gray"
+                    : "red",
+                color: "white",
+              }}
+              variant="contained"
+              onClick={resetForm}
+              disabled={!selectedProduct || !selectedCustomer || !date}
+            >
+              Reset
             </Button>
           </Box>
         </form>
-        <TableContainer>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell style={{ border: "1px solid #000" }}>
-                  Product
-                </TableCell>
-                <TableCell style={{ border: "1px solid #000" }}>
-                  Customer
-                </TableCell>
-                <TableCell style={{ border: "1px solid #000" }}>Date</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {purchases.map((purchase) => (
-                <TableRow key={purchase.id}>
-                  <TableCell style={{ border: "1px solid #000" }}>
-                    {productsObj[purchase.ProductID]}
+        {purchases.length > 0 && (
+          <div>
+            <strong>Total Purchases:</strong> {purchases.length}
+          </div>
+        )}
+        {searched && purchases.length > 0 ? (
+          <TableContainer style={{ maxWidth: "50%", margin: "0 auto" }}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell
+                    style={{ border: "1px solid #000", textAlign: "center" }}
+                  >
+                    <strong>Product</strong>
                   </TableCell>
-                  <TableCell style={{ border: "1px solid #000" }}>
-                    {customersObj[purchase.CustomerID]}
+                  <TableCell
+                    style={{ border: "1px solid #000", textAlign: "center" }}
+                  >
+                    <strong>Customer</strong>
                   </TableCell>
-                  <TableCell style={{ border: "1px solid #000" }}>
-                    {purchase.Date}
+                  <TableCell
+                    style={{ border: "1px solid #000", textAlign: "center" }}
+                  >
+                    <strong>Date</strong>
                   </TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {purchases
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((purchase) => (
+                    <TableRow key={purchase.id}>
+                      <TableCell
+                        style={{
+                          border: "1px solid #000",
+                          textAlign: "center",
+                        }}
+                      >
+                        <strong>{productsObj[purchase.ProductID]}</strong>
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          border: "1px solid #000",
+                          textAlign: "center",
+                        }}
+                      >
+                        <strong>{customersObj[purchase.CustomerID]}</strong>
+                      </TableCell>
+                      <TableCell
+                        style={{
+                          border: "1px solid #000",
+                          textAlign: "center",
+                        }}
+                      >
+                        <strong>
+                          {format(
+                            new Date(purchase.Date),
+                            "d MMMM yyyy, HH:mm:ss"
+                          )}
+                        </strong>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+              </TableBody>
+            </Table>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25]}
+              component="div"
+              count={purchases.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+            />
+          </TableContainer>
+        ) : searched ? (
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <NoPurchasesToShow />
+          </Box>
+        ) : null}
       </Box>
     </Layout>
   );

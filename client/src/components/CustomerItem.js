@@ -107,46 +107,59 @@ const CustomerItem = ({ customer, purchase }) => {
         </Link>
       </h4>
       <p>
-        Purchased Date:{" "}
-        {format(new Date(purchase.Date), "yyyy-MM-dd'T'HH:mm:ss")}
+        <strong>Purchased Date: </strong>
+        {format(new Date(purchase.Date), "d MMMM yyyy, HH:mm:ss")}
       </p>
-      <Button variant="contained" color="primary" onClick={handleAddClick}>
-        Add
-      </Button>
+      {/* Button container */}
+      <div style={{ display: "flex", gap: "10px" }}>
+        <Button
+          variant="contained"
+          style={{ backgroundColor: "green" }}
+          onClick={handleAddClick}
+        >
+          Add
+        </Button>
 
-      {showAddForm && (
-        <div>
-          <FormControl
-            sx={{
-              minWidth: 420,
-              marginRight: "10px",
-            }}
-          >
-            <InputLabel id="product-select-label">Select Product</InputLabel>
-            <Select
-              value={selectedProduct}
-              label="Select Product"
-              onChange={(e) => setSelectedProduct(e.target.value)}
+        {showAddForm && (
+          <div>
+            <FormControl
+              sx={{
+                minWidth: 420,
+                marginRight: "10px",
+              }}
             >
-              {products.map((product) => (
-                <MenuItem
-                  key={product.id}
-                  value={product.id}
-                  style={{ color: product.Quantity === 0 ? "red" : "black" }}
-                >
-                  {product.Name}{" "}
-                  {product.Quantity === 0
-                    ? "(Out of Stock)"
-                    : " - " + product.Quantity + " Items left"}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
-          <Button variant="contained" color="primary" onClick={handleSaveClick}>
-            Save
-          </Button>
-        </div>
-      )}
+              <InputLabel id="product-select-label">Select Product</InputLabel>
+              <Select
+                value={selectedProduct}
+                label="Select Product"
+                onChange={(e) => setSelectedProduct(e.target.value)}
+              >
+                {products.map((product) => (
+                  <MenuItem
+                    key={product.id}
+                    value={product.id}
+                    style={{ color: product.Quantity === 0 ? "red" : "black" }}
+                  >
+                    {product.Name}{" "}
+                    {product.Quantity === 0
+                      ? "(Out of Stock)"
+                      : " - " + product.Quantity + " Items left"}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ marginTop: "10px" }}
+              onClick={handleSaveClick}
+            >
+              Save
+            </Button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
