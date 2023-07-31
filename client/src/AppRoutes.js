@@ -9,15 +9,9 @@ import NotFound from "./components/NotFound";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { useAuth } from "./contex/auth";
-import RequireAuth from "./components/RequireAuth";
 import Unauthorized from "./components/Unauthorized";
 import UserAdminRoutes from "./components/Routes/UserAdminRoutes";
 import AdminRoute from "./components/Routes/AdminRoute";
-
-const ROLES = {
-  User: 2001,
-  Admin: 5150,
-};
 
 const AppRoutes = () => {
   const { auth } = useAuth();

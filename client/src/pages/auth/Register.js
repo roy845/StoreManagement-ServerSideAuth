@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import "../../styles/cursorStyles.css";
 import "../../styles/errorStyles.css";
 import "../../styles/successStyles.css";
@@ -19,9 +18,8 @@ import {
 } from "@material-ui/core";
 import { LockOutlined } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
-import axios from "axios";
 import toast from "react-hot-toast";
-import { register } from "../../serverAPI";
+import { register } from "../../Api/serverAPI";
 
 const useStyles = makeStyles((theme) => ({
   paper: {

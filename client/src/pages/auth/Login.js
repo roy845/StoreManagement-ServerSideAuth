@@ -12,15 +12,12 @@ import {
 import { LockOutlined } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import { useNavigate, useLocation } from "react-router-dom";
-import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAuth } from "../../contex/auth";
-import axios from "axios";
 import "../../styles/cursorStyles.css";
 import "../../styles/errorStyles.css";
 import "../../styles/successStyles.css";
 import toast from "react-hot-toast";
-import { login } from "../../serverAPI";
+import { login } from "../../Api/serverAPI";
 
 const useStyles = makeStyles((theme) => ({
   paper: {

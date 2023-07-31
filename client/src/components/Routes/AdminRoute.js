@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../contex/auth";
 import { Navigate, Outlet, useLocation } from "react-router";
-import { getAdminRoutes } from "../../serverAPI";
+import { getAdminRoutes } from "../../Api/serverAPI";
 import Spinner from "../Spinner";
 
 export default function UserAdminRoutes() {
