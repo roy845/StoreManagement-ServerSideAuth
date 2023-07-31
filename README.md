@@ -48,7 +48,7 @@ This project is a store management application built using React, Redux (for sta
 
 - No results from query found: If a user performs a search on the Purchases page and there are no results that match the search criteria, a helpful message will be displayed to inform the user that no search results were found.
 
-<img src="https://imgtr.ee/images/2023/07/29/1893154c6a1a721d3ac5be931309a6ae.png" alt="1893154c6a1a721d3ac5be931309a6ae.png" width = "800px" height = "400px">
+<img src="https://imgtr.ee/images/2023/07/31/c0745e56fb978700df10868b66be1789.png" alt="c0745e56fb978700df10868b66be1789.png" width = "800px" height = "400px">
 
 8. Not Found Page: This page is used when a user tries to navigate to a non-existing page or route in your application.
 
