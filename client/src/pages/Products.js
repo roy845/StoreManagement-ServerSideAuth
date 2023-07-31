@@ -43,7 +43,7 @@ const Products = () => {
   }, [dispatch]);
 
   return (
-    <Layout title={"products"}>
+    <Layout title={"Products"}>
       {isLoading ? (
         <Spinner text={"Products"} />
       ) : (
@@ -51,6 +51,7 @@ const Products = () => {
           {products.length > 0 ? (
             <>
               <h1 style={{ textAlign: "center" }}>Products</h1>
+
               <Box
                 sx={{
                   display: "flex",

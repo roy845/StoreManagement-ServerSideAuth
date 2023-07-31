@@ -37,6 +37,7 @@ import {
 } from "../features/products/productsSlice";
 import { format } from "date-fns";
 import Spinner from "../components/Spinner";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Customers = () => {
   const dispatch = useDispatch();
@@ -172,7 +173,7 @@ const Customers = () => {
   }, [dispatch]);
 
   return (
-    <Layout title={"customers"}>
+    <Layout title={"Customers"}>
       {isLoading ? (
         <Spinner text={"Customers"} />
       ) : (
@@ -275,6 +276,7 @@ const Customers = () => {
                 variant="contained"
                 color="primary"
                 onClick={handleBuyProductClick}
+                startIcon={<ShoppingCartIcon />}
               >
                 Buy Product
               </Button>
@@ -359,6 +361,7 @@ const Customers = () => {
                     onClick={handleFormSubmit}
                     variant="contained"
                     color="primary"
+                    startIcon={<ShoppingCartIcon />}
                   >
                     Buy
                   </Button>

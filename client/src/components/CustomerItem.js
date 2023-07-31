@@ -25,6 +25,8 @@ import {
   setProducts,
   decrementQuantity,
 } from "../features/products/productsSlice";
+import AddIcon from "@mui/icons-material/Add";
+import SaveIcon from "@mui/icons-material/Save";
 
 const CustomerItem = ({ customer, purchase }) => {
   const [showAddForm, setShowAddForm] = useState(false);
@@ -116,6 +118,7 @@ const CustomerItem = ({ customer, purchase }) => {
           variant="contained"
           style={{ backgroundColor: "green" }}
           onClick={handleAddClick}
+          startIcon={<AddIcon />}
         >
           Add
         </Button>
@@ -154,6 +157,7 @@ const CustomerItem = ({ customer, purchase }) => {
               color="primary"
               style={{ marginTop: "10px" }}
               onClick={handleSaveClick}
+              startIcon={<SaveIcon />}
             >
               Save
             </Button>

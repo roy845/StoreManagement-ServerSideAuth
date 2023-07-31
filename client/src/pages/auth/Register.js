@@ -20,6 +20,7 @@ import { LockOutlined } from "@material-ui/icons";
 import { makeStyles } from "@material-ui/core/styles";
 import toast from "react-hot-toast";
 import { register } from "../../Api/serverAPI";
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -131,6 +132,7 @@ const Register = () => {
             color="primary"
             className={classes.submit}
             disabled={!username || !password}
+            endIcon={<PersonAddIcon />}
           >
             Sign Up
           </Button>

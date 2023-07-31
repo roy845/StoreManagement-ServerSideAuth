@@ -28,6 +28,8 @@ import {
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 import NoPurchasesToShow from "../components/NoPurchasesToShow";
+import SearchIcon from "@mui/icons-material/Search";
+import RestartAltIcon from "@mui/icons-material/RestartAlt";
 
 const Purchases = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -161,7 +163,7 @@ const Purchases = () => {
               ))}
             </Select>
           </FormControl>
-          <FormControl sx={{ minWidth: 200 }}>
+          <FormControl sx={{ minWidth: 200, marginLeft: 2, marginRight: 2 }}>
             <InputLabel id="customer-select-label">Customer</InputLabel>
 
             <Select
@@ -204,6 +206,7 @@ const Purchases = () => {
               disabled={
                 selectedProduct === "" || selectedCustomer === "" || !date
               }
+              startIcon={<SearchIcon />}
             >
               Search
             </Button>
@@ -219,6 +222,7 @@ const Purchases = () => {
               variant="contained"
               onClick={resetForm}
               disabled={!selectedProduct || !selectedCustomer || !date}
+              startIcon={<RestartAltIcon />}
             >
               Reset
             </Button>

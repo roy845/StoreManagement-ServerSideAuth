@@ -18,6 +18,7 @@ import "../../styles/errorStyles.css";
 import "../../styles/successStyles.css";
 import toast from "react-hot-toast";
 import { login } from "../../Api/serverAPI";
+import LoginIcon from "@mui/icons-material/Login";
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -153,6 +154,7 @@ const Login = () => {
             color="primary"
             className={classes.submit}
             disabled={!username || !password}
+            endIcon={<LoginIcon />}
           >
             Sign In
           </Button>

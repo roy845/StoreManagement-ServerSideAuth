@@ -18,6 +18,8 @@ import { db } from "../config/firebase";
 import { Link } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { toast } from "react-hot-toast";
+import DeleteIcon from "@mui/icons-material/Delete";
+import UpdateIcon from "@mui/icons-material/Update";
 
 const EditCustomer = () => {
   const navigate = useNavigate();
@@ -192,6 +194,7 @@ const EditCustomer = () => {
                     variant="contained"
                     color="primary"
                     onClick={handleUpdate}
+                    startIcon={<UpdateIcon />}
                   >
                     Update Customer
                   </Button>
@@ -199,6 +202,7 @@ const EditCustomer = () => {
                     variant="contained"
                     sx={{ backgroundColor: "red" }}
                     onClick={deleteCustomer}
+                    startIcon={<DeleteIcon />}
                   >
                     Delete Customer
                   </Button>

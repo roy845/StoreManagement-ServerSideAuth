@@ -20,11 +20,13 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonIcon from "@mui/icons-material/Person";
 import SellIcon from "@mui/icons-material/Sell";
 import LogoutIcon from "@mui/icons-material/Logout";
+import LocalGroceryStoreIcon from "@mui/icons-material/LocalGroceryStore";
 import { useNavigate } from "react-router";
 import { toast } from "react-hot-toast";
 import { useAuth } from "../contex/auth";
 import { useDispatch } from "react-redux";
 import { resetTotalPurchases } from "../features/products/productsSlice";
+import Clock from "./Clock/Clock";
 
 const drawerWidth = 240;
 
@@ -149,7 +151,7 @@ export default function PersistentDrawerLeft() {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ height: "64px" }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -160,20 +162,24 @@ export default function PersistentDrawerLeft() {
           >
             <MenuIcon />
           </IconButton>
+          <LocalGroceryStoreIcon style={{ marginRight: 15 }} />
           <Typography variant="h6" noWrap component="div">
             {header}
           </Typography>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            style={{
-              textAlign: "right",
-              marginLeft: "auto",
-            }}
+
+          <Box
+            sx={{ display: "flex", alignItems: "center", marginLeft: "auto" }}
           >
-            {`Hello, ${auth?.user?.username}`}
-          </Typography>
+            <Clock />
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ marginLeft: 1 }}
+            >
+              {`Hello, ${auth?.user?.username}`}
+            </Typography>
+          </Box>
         </Toolbar>
       </AppBar>
       <Drawer

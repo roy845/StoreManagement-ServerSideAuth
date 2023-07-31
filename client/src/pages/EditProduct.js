@@ -17,6 +17,8 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import Spinner from "../components/Spinner";
 import { toast } from "react-hot-toast";
+import DeleteIcon from "@mui/icons-material/Delete";
+import UpdateIcon from "@mui/icons-material/Update";
 
 const EditProduct = () => {
   const { productId } = useParams();
@@ -189,6 +191,7 @@ const EditProduct = () => {
                     variant="contained"
                     color="primary"
                     onClick={updateProduct}
+                    startIcon={<UpdateIcon />}
                   >
                     Update Product
                   </Button>
@@ -196,6 +199,7 @@ const EditProduct = () => {
                     variant="contained"
                     sx={{ backgroundColor: "red" }}
                     onClick={deleteProduct}
+                    startIcon={<DeleteIcon />}
                   >
                     Delete Product
                   </Button>
