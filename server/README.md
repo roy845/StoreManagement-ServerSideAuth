@@ -8,55 +8,55 @@ This project is a store management application built using React, Redux (for sta
 
 - Login
 
-<img src="https://imgtr.ee/images/2023/07/31/d0167405ad70592b178dfa05aa099d56.png" alt="d0167405ad70592b178dfa05aa099d56.png" width = "800px" height = "400px">
+<a href="https://ibb.co/D9TbNgY"><img src="https://i.ibb.co/Wkj3Qp0/login-page-screen.png" alt="login-page-screen" border="0"></a>
 
 - Register
 
-<img src="https://imgtr.ee/images/2023/07/31/c4588eaee34cb294808e052178462974.png" alt="c4588eaee34cb294808e052178462974.png" width = "800px" height = "400px">
+<a href="https://ibb.co/H4F9L1t"><img src="https://i.ibb.co/7CY0x8n/signup-page-screen.png" alt="signup-page-screen" border="0"></a>
 
 2. Menu Navigation: Provides navigation to "Products", "Customers", and "Purchases" pages and also for logging out the current connected user.
 
-<img src="https://imgtr.ee/images/2023/07/26/444eaf5c1d4cb703bac2233d29d2b2c4.png" alt="444eaf5c1d4cb703bac2233d29d2b2c4.png" height="100%">
+<a href="https://ibb.co/cFz44T4"><img src="https://i.ibb.co/KqCTTyT/Navigation-component.png" alt="Navigation-component" border="0"></a>
 
 3. Products Page: Displays total amount of purchased products and detailed product data. Users can add new products to customers from this page.
 
-<img src="https://imgtr.ee/images/2023/07/31/e5c7b1ffa95e0a1f8e3c4e0484b06245.png" alt="e5c7b1ffa95e0a1f8e3c4e0484b06245.png" width = "800px" height = "400px">
+<a href="https://ibb.co/L1L8k6F"><img src="https://i.ibb.co/SBhPs0j/products-page-screen.png" alt="products-page-screen" border="0"></a>
 
 - Add product
 
-<img src="https://imgtr.ee/images/2023/07/31/93a0d6beb3b30c3b284a3fed7568f97a.png" alt="93a0d6beb3b30c3b284a3fed7568f97a.png" width = "800px" height = "400px">
+<a href="https://ibb.co/spfFfT7"><img src="https://i.ibb.co/fVgCg3J/Add-product-from-products-page-screen.png" alt="Add-product-from-products-page-screen" border="0"></a>
 
 4. Edit Product Page: Allows Admin users to update or delete product data.
 
-<img src="https://imgtr.ee/images/2023/07/31/8e28c3c1a14fcb57dd1ee7b7d7a2fe97.png" alt="8e28c3c1a14fcb57dd1ee7b7d7a2fe97.png" width = "800px" height = "400px">
+<a href="https://ibb.co/RpgR9jB"><img src="https://i.ibb.co/vxc0HXQ/edit-product-page-screen.png" alt="edit-product-page-screen" border="0"></a>
 
 5. Customers Page: Showcases customers and their purchased products and purchased dates. Users can also buy products from this page.
-   <img src="https://imgtr.ee/images/2023/07/31/d564a92b47ce4b88446d084042627862.png" alt="d564a92b47ce4b88446d084042627862.png" width = "800px" height = "400px">
+   <a href="https://ibb.co/jh6zK7n"><img src="https://i.ibb.co/PxmMpBq/customers-page-screen.png" alt="customers-page-screen" border="0"></a>
 
 - Add product
 
-<img src="https://imgtr.ee/images/2023/07/31/a9c37dcc642bf946c1357a328dc486ec.png" alt="a9c37dcc642bf946c1357a328dc486ec.png" width = "800px" height = "400px">
+<a href="https://ibb.co/0K4fCnX"><img src="https://i.ibb.co/T1jH4wT/Add-product-from-customers-page-screen.png" alt="Add-product-from-customers-page-screen" border="0"></a>
 
-<img src="https://imgtr.ee/images/2023/07/31/be4f9c6a7be309158e2478e3043c7e0b.png" alt="be4f9c6a7be309158e2478e3043c7e0b.png" width = "800px" height = "400px">
+<a href="https://ibb.co/6WJr2d7"><img src="https://i.ibb.co/KrzbY1p/Add-product-from-customers-page-screen2.png" alt="Add-product-from-customers-page-screen2" border="0"></a>
 
 6. Edit Customer Page: Allows Admin users to update or delete customer data.
 
-<img src="https://imgtr.ee/images/2023/07/31/fa8117fe5f1273936f81496679dd7658.png" alt="fa8117fe5f1273936f81496679dd7658.png" width = "800px" height = "400px">
+<a href="https://ibb.co/pnw3LLX"><img src="https://i.ibb.co/7bCG11y/edit-customer-page-screen.png" alt="edit-customer-page-screen" border="0"></a>
 
 7. Purchases Page: Allows users to search for purchases by product, customer, or date.
-   <img src="https://imgtr.ee/images/2023/07/31/acc18c9f6467105ada6f262779886a3a.png" alt="acc18c9f6467105ada6f262779886a3a.png" width = "800px" height = "400px">
+   <a href="https://ibb.co/YWgCKLB"><img src="https://i.ibb.co/ZJ9jwMz/purchases-page-screen-with-header.png" alt="purchases-page-screen-with-header" border="0"></a>
 
 - No results from query found: If a user performs a search on the Purchases page and there are no results that match the search criteria, a helpful message will be displayed to inform the user that no search results were found.
 
-<img src="https://imgtr.ee/images/2023/07/31/fb2c99a151df01de9073abc40527bfef.png" alt="fb2c99a151df01de9073abc40527bfef.png" width = "800px" height = "400px">
+<a href="https://ibb.co/z8zhJh1"><img src="https://i.ibb.co/SQzXrX2/No-search-results-with-header.png" alt="No-search-results-with-header" border="0"></a>
 
 8. Not Found Page: This page is used when a user tries to navigate to a non-existing page or route in your application.
 
-<img src="https://imgtr.ee/images/2023/07/27/54fdf6d9524ade27f11797cde9a315f6.png" alt="54fdf6d9524ade27f11797cde9a315f6.png" width = "800px" height = "400px">
+<a href="https://ibb.co/d7DzyFd"><img src="https://i.ibb.co/pnd9pct/Page-Not-Found-screen.png" alt="Page-Not-Found-screen" border="0"></a>
 
 9. Unauthorized Page: This page is used when a user tries to access a resource for which they do not have permission.
 
-<img src="https://imgtr.ee/images/2023/07/27/5ffc7f634087eac3f8d90765cb906cf2.png" alt="5ffc7f634087eac3f8d90765cb906cf2.png" width = "800px" height = "400px">
+<a href="https://ibb.co/8McxM8W"><img src="https://i.ibb.co/rkspkyC/Unauthorized-page-screen.png" alt="Unauthorized-page-screen" border="0"></a>
 
 ## Database Collections
 
@@ -142,11 +142,15 @@ This project is a store management application built using React, Redux (for sta
 
 - **VS Code**
   <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" width = "60px" height = "60px">
+
 - **NodeJS**
   <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/2560px-Node.js_logo.svg.png" width = "60px" height = "60px">
 
 - **React**
   <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width = "60px" height = "60px">
+
+- **Material UI**
+  <a href="https://ibb.co/VtWN1my"><img src="https://i.ibb.co/wRNLksH/mui-logo.png" alt="mui-logo" width = "60px" height = "60px" border="0"></a>
 
 - **Redux**
   <img src = "https://www.svgrepo.com/show/303557/redux-logo.svg" width = "60px" height = "60px">
